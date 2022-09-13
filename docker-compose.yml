@@ -2,6 +2,8 @@ version: "3"
 services:
   api:
     image: tempsens-api
+    env_file:
+      - .env
     environment:
       DB_HOST: db
     depends_on:
@@ -15,7 +17,7 @@ services:
       POSTGRES_PASSWORD: ${PASSWORD}
       POSTGRES_DB: ${DB}
     ports:
-      -${PORT}:8001
+      - ${PORT}:8001
     volumes:
       - postgresql:/var/lib/postgresql/api
       - postgresql_data:/var/lib/postgresql/api/data
