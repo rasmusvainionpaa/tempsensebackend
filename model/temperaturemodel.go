@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type temperature struct {
+type Temperature struct {
 	gorm.Model         // creates a gorm model that adds id and creation time
 	Outside    float32 `json:"outside"`
 	Inside     float32 `json:"inside"`
