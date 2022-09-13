@@ -6,6 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetTemperatures(c *gin.Context) {
+func (h handler) GetTemperatures(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"h": "w"})
 }
