@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"tempsensebackend/controller/temperaturecontroller"
-	"tempsensebackend/database"
+	"tempsensebackend/src/controller/temperaturecontroller"
+	"tempsensebackend/src/database"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -27,7 +27,9 @@ func main() {
 	temperaturecontroller.RegisterTemperaturesRoutes(router, db)
 
 	// gets run when requested route isn't found
-	router.NoRoute(func(ctx *gin.Context) { ctx.JSON(http.StatusNotFound, gin.H{"Error": "404"}) })
+	router.NoRoute(func(ctx *gin.Context) {
+		ctx.JSON(http.StatusNotFound, gin.H{"Error": "404"})
+	})
 
 	//starts server
 	router.Run(":8000")
