@@ -9,9 +9,11 @@ import (
 )
 
 type request struct {
-	Key     string  `json:"key"`
-	Outside float32 `json:"outside"`
-	Inside  float32 `json:"inside"`
+	Key                string  `json:"key"`
+	OutsideTemperature float32 `json:"OutsideTemperature"`
+	OutsideHumidity    float32 `json:"OutsideHumidity"`
+	InsideTemperature  float32 `json:"InsideTemperature"`
+	InsideHumidity     float32 `json:"InsideHumidity"`
 }
 
 func (h handler) PostTemperature(c *gin.Context) {
@@ -31,8 +33,10 @@ func (h handler) PostTemperature(c *gin.Context) {
 
 	var temp model.Temperature
 
-	temp.Outside = r.Outside
-	temp.Inside = r.Inside
+	temp.OutsideTemperature = r.OutsideTemperature
+	temp.OutsideHumidity = r.OutsideHumidity
+	temp.InsideTemperature = r.InsideTemperature
+	temp.InsideHumidity = r.InsideHumidity
 
 	if result := h.DB.Create(&temp); result.Error != nil {
 		c.AbortWithError(http.StatusNotFound, result.Error)
