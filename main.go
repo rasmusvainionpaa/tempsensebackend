@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"tempsensebackend/src/controller/temperaturecontroller"
-	"tempsensebackend/src/database"
+	"tempsensebackend/controller/temperaturecontroller"
+	"tempsensebackend/database"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
