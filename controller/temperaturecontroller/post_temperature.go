@@ -3,7 +3,7 @@ package temperaturecontroller
 import (
 	"net/http"
 	"os"
-	"tempsensebackend/src/model"
+	"tempsensebackend/model"
 
 	"github.com/gin-gonic/gin"
 )
