@@ -16,6 +16,5 @@ func RegisterTemperaturesRoutes(gin *gin.Engine, db *gorm.DB) {
 
 	routes := gin.Group("/temperatures")
 	routes.GET("/", h.GetTemperatures)
-	routes.GET("/:id", h.GetTemperature)
 	routes.POST("/", h.PostTemperature)
 }
